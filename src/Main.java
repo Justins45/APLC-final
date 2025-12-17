@@ -11,3 +11,41 @@ void main() {
     IO.println("i = " + i);
   }
 }
+
+
+public Object CreateVehicle() {
+  Scanner scanner = new Scanner(System.in);
+  System.out.println("Please enter your license plate!");
+  String plateNum = scanner.nextLine();
+  System.out.println("Please Choose a vehicle size");
+  System.out.println("""
+            ============
+            1. Compact
+            2. Large
+            ============
+          """);
+  String vechileSizeInput = scanner.nextLine();
+  String vechileSize;
+
+  boolean running = true;
+  while(running) {
+    switch (vechileSizeInput) {
+      case "1":
+        vechileSize = "compact";
+        running = false;
+        break;
+      case "2":
+        vechileSize = "large";
+        running = false;
+        break;
+      default:
+        System.out.println("Please enter a valid option from the list..");
+    }
+  }
+
+  // Vehicle newVehicle = new Vehicle(plateNum, vechileSize);
+  // return newVechicle;
+
+  Object newVehicle;
+  return newVehicle;
+}
