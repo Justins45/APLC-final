@@ -23,8 +23,12 @@ public class Exceptions {
             if (currentParking > maxParking){
                 throw new RuntimeException();
             }
-            elif (currentParking == maxParking){
+            else if (currentParking == maxParking){
                 System.out.println("No parking is available");
+            }
+
+            else {
+                System.out.print("Unknown error occured.");
             }
             return currentParking;
         } catch (RuntimeException e) {
