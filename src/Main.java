@@ -4,31 +4,38 @@ public final Scanner keyboardInput = new Scanner(System.in);
 
 void main() {
 
-ParkingLot parkingLot = new ParkingLot();
-parkingLot.AddSpot("p1", "compact");
-//parkingLot.GetSize();
+  ParkingLot parkingLot = new ParkingLot();
+  parkingLot.AddSpot("p1", "compact");
+  //parkingLot.GetSize();
 
 
-  int selection = displayMenu();
+  int selection = -1;
+  while (selection != 0) {
+    selection = displayMenu();
 
-  switch (selection) {
-    case 1:
-      System.out.println("Total Spots used: " + parkingLot.listSpots());
-    case 2:
-      createParkingSession();
-    case 3:
-      endParkingSession();
-    case 0:
-      System.out.println("Thank you for using the Smart Parking System!");
-      System.out.println("Have a wonderful day!");
+    switch (selection) {
+      case 1:
+        System.out.println("Total Spots used: " + parkingLot.listSpots());
+        break;
+      case 2:
+        createParkingSession(parkingLot);
+        break;
+      case 3:
+        endParkingSession();
+        break;
+      case 0:
+        System.out.println("Thank you for using the Smart Parking System!");
+        System.out.println("Have a wonderful day!");
+        break;
+    }
   }
 }
 
 
 public Vehicle CreateVehicle() {
-  Scanner scanner = new Scanner(System.in);
+//  Scanner scanner = new Scanner(System.in);
   System.out.println("Please enter your license plate!");
-  String plateNum = scanner.nextLine();
+  String plateNum = keyboardInput.nextLine();
   System.out.println("Please Choose a vehicle size");
   System.out.println("""
             ============
@@ -36,26 +43,31 @@ public Vehicle CreateVehicle() {
             2. Large
             ============
           """);
-  String vehicleSizeInput = scanner.nextLine();
+  String vehicleSizeInput = keyboardInput.nextLine();
   String vechileSize = "unknown";
 
   boolean running = true;
   while(running) {
     switch (vehicleSizeInput) {
-      case "1":
-        vechileSize = "compact";
+      case "compact":
+//        vehicleSizeInput = "compact";
         running = false;
         break;
-      case "2":
-        vechileSize = "large";
+      case "large":
+//        vehicleSizeInput = "large";
         running = false;
+        break;
+      case "unknown":
+        vehicleSizeInput = "large";
         break;
       default:
         System.out.println("Please enter a valid option from the list..");
+        vehicleSizeInput = keyboardInput.nextLine();
+
     }
   }
 
-  return new Vehicle(plateNum, vechileSize);
+  return new Vehicle(plateNum, vehicleSizeInput);
 }
 
 public int displayMenu() {
@@ -83,10 +95,11 @@ public int displayMenu() {
   return userInput;
 }
 
-public void createParkingSession() {
+public void createParkingSession(ParkingLot parkingLot) {
   Vehicle vehicle = CreateVehicle();
   String size = vehicle.getSize();
-  
+  String spotId = parkingLot.findSpot(size);
+  System.out.println(String.format("Parking confirmed. Please proceed to spot %s", spotId));
 }
 
 public void endParkingSession() {
