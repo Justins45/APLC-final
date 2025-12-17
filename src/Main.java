@@ -4,12 +4,16 @@ public final Scanner keyboardInput = new Scanner(System.in);
 
 void main() {
 
+ParkingLot parkingLot = new ParkingLot();
+parkingLot.AddSpot("p1", "compact");
+//parkingLot.GetSize();
+
 
   int selection = displayMenu();
 
   switch (selection) {
     case 1:
-//      listSpots();
+      System.out.println("Total Spots used: " + parkingLot.listSpots());
     case 2:
       createParkingSession();
     case 3:
