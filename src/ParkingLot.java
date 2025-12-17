@@ -31,18 +31,32 @@ public class ParkingLot {
     }
     // TODO: add way to create a full list without adding one by one
 
-    public String findSpot(String size) {
+    public ParkingSpot findSpotPlate(String size) {
         for (ParkingSpot spot : this.spots) {
             if (Objects.equals(spot.getSize(), "unknown")) {
                 size = "large";
             }
             if (Objects.equals(spot.getSize(), size) && spot.isAvailable()) {
-                return spot.getId();
+                return spot;
             }
         }
         System.out.println("No spots available that match required size");
         return null;
     }
+
+    public ParkingSpot findSpotId(String id) {
+        for (ParkingSpot spot : this.spots) {
+            if (Objects.equals(spot.getId(), id)) {
+                return spot;
+            }
+//            if (Objects.equals(spot.getSize(), id) && spot.isAvailable()) {
+//                return spot;
+//            }
+        }
+        System.out.println("No spots available that match provided id.");
+        return null;
+    }
+
 }
 
 

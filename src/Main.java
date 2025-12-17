@@ -20,7 +20,7 @@ parkingLot.AddSpot("p1", "compact");
         createParkingSession(parkingLot);
         break;
       case 3:
-        endParkingSession();
+        endParkingSession(parkingLot);
         break;
       case 0:
         System.out.println("Thank you for using the Smart Parking System!");
@@ -97,14 +97,17 @@ public int displayMenu() {
 public void createParkingSession(ParkingLot parkingLot) {
   Vehicle vehicle = CreateVehicle();
   String size = vehicle.getSize();
-  String spotId = parkingLot.findSpot(size);
-  System.out.println(String.format("Parking confirmed. Please proceed to spot %s", spotId));
+  ParkingSpot spot = parkingLot.findSpotPlate(size);
+  spot.setAvailable(false);
+  System.out.println(String.format("Parking confirmed. Please proceed to spot %s", spot.getId()));
 }
 
-public void endParkingSession() {
+public void endParkingSession(ParkingLot parkingLot) {
   System.out.println("Enter parking spot id: ");
   String userInput = keyboardInput.nextLine();
-  System.out.println(userInput);
+  ParkingSpot spot = parkingLot.findSpotId(userInput);
+  spot.setAvailable(true);
+  System.out.println("Parking session ended.");
 }
 
 
