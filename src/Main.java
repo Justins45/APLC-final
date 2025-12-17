@@ -27,12 +27,12 @@ public Object CreateVehicle() {
             2. Large
             ============
           """);
-  String vechileSizeInput = scanner.nextLine();
-  String vechileSize;
+  String vehicleSizeInput = scanner.nextLine();
+  String vechileSize = "unknown";
 
   boolean running = true;
   while(running) {
-    switch (vechileSizeInput) {
+    switch (vehicleSizeInput) {
       case "1":
         vechileSize = "compact";
         running = false;
@@ -46,12 +46,9 @@ public Object CreateVehicle() {
     }
   }
 
-  // Vehicle newVehicle = new Vehicle(plateNum, vechileSize);
-  // return newVechicle;
-
-  Object newVehicle;
-  return newVehicle;
+  return new Vehicle(plateNum, vechileSize);
 }
+
 public int displayMenu() {
   System.out.println("Welcome to the Smart Parking System");
   System.out.println("Please select an option:");
