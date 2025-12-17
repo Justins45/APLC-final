@@ -3,15 +3,15 @@ import java.util.Scanner;
 void main() {
 
 ParkingLot parkingLot = new ParkingLot();
-parkingLot.AddSpot(new ParkingSpot("p1", "compact"));
-parkingLot.GetSize();
+parkingLot.AddSpot("p1", "compact");
+//parkingLot.GetSize();
 
 
   int selection = displayMenu();
 
   switch (selection) {
     case 1:
-      parkingLot.listSpots();
+      System.out.println("Total Spots used: " + parkingLot.listSpots());
     case 2:
       createParkingSession();
     case 3:

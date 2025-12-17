@@ -5,10 +5,12 @@ public class ParkingLot {
 
     List<ParkingSpot> spots = new ArrayList<>();
 
-    public void listSpots(){
-        for (ParkingSpot item : this.spots) {
-            System.out.println(item);
+    public int listSpots(){
+      int count = 0;
+        for (ParkingSpot _ : this.spots) {
+            count++;
         }
+        return count;
     }
 
     public void GetSize() {
@@ -23,6 +25,7 @@ public class ParkingLot {
         System.out.println("Parking lot cannot fit anymore stalls!");
       }
     }
+    // TODO: add way to create a full list without adding one by one
 }
 
 
@@ -30,9 +33,6 @@ public class ParkingLot {
 // parking spot takes number for size
 // -- exception check for non zero number
 // -- when adding exception check for hitting max / going over size
-
-// user inputs
-// -- exception check for valid numbers
 
 // vehcile creation
 // -- exception check for correct licence plate format
