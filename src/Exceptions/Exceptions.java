@@ -37,4 +37,16 @@ public class Exceptions {
             throw new RuntimeException(e);
         }
     }
+
+    public void validateLicensePlate(String plateNum) throws RuntimeException {
+      try{
+        if (plateNum.length() != 6) {
+          System.err.println("invalid licelce plate number...");
+          throw new RuntimeException();
+        }
+      } catch (RuntimeException e) {
+        System.err.println("Invalid license plate number...");
+        throw new RuntimeException("Invalid license plate number... " + e);
+      }
+    }
 }
