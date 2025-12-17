@@ -2,12 +2,13 @@ import java.util.Scanner;
 
 void main() {
 
-
+ParkingLot parkingLot = new ParkingLot(42);
+parkingLot.GetSize();
   int selection = displayMenu();
 
   switch (selection) {
     case 1:
-//      listSpots();
+      parkingLot.listSpots();
     case 2:
       createParkingSession();
     case 3:
