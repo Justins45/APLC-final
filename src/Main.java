@@ -1,7 +1,18 @@
 import java.util.Scanner;
 
 void main() {
+
+
   int selection = displayMenu();
+
+  switch (selection) {
+    case 1:
+//      listSpots();
+    case 2:
+      createParkingSession();
+    case 3:
+      endParkingSession();
+  }
 }
 
 public int displayMenu() {
@@ -16,4 +27,12 @@ public int displayMenu() {
   System.out.println(userInput);
   keyboardInput.close();
   return userInput;
+}
+
+public void createParkingSession() {
+
+}
+
+public void endParkingSession() {
+
 }
