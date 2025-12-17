@@ -4,7 +4,6 @@ void main() {
 
 ParkingLot parkingLot = new ParkingLot();
 parkingLot.AddSpot("p1", "compact");
-//parkingLot.GetSize();
 
 
   int selection = displayMenu();
