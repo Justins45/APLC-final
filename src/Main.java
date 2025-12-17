@@ -25,7 +25,7 @@ parkingLot.AddSpot("p1", "compact");
 }
 
 
-public Object CreateVehicle() {
+public Vehicle CreateVehicle() {
   Scanner scanner = new Scanner(System.in);
   System.out.println("Please enter your license plate!");
   String plateNum = scanner.nextLine();
@@ -84,7 +84,9 @@ public int displayMenu() {
 }
 
 public void createParkingSession() {
-
+  Vehicle vehicle = CreateVehicle();
+  String size = vehicle.getSize();
+  
 }
 
 public void endParkingSession() {
