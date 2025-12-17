@@ -2,8 +2,11 @@ import java.util.Scanner;
 
 void main() {
 
-ParkingLot parkingLot = new ParkingLot(42);
+ParkingLot parkingLot = new ParkingLot();
+parkingLot.AddSpot(new ParkingSpot("p1", "compact"));
 parkingLot.GetSize();
+
+
   int selection = displayMenu();
 
   switch (selection) {

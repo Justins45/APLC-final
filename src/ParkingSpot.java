@@ -30,9 +30,9 @@ public class ParkingSpot {
     }
 
     //constructor
-    public ParkingSpot(String id, String size, boolean available){
+    public ParkingSpot(String id, String size){
         this.id = id;
         this.size = size;
-        this.available = available;
+        this.available = true;
     }
 }

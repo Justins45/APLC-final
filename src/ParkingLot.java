@@ -3,25 +3,25 @@ import java.util.List;
 
 public class ParkingLot {
 
-
-    ParkingSpot[] spots;
-
-  public ParkingLot(int size) {
-      spots = new ParkingSpot[size];
-    }
+    List<ParkingSpot> spots = new ArrayList<>();
 
     public void listSpots(){
-        for (ParkingSpot item : spots) {
+        for (ParkingSpot item : this.spots) {
             System.out.println(item);
         }
     }
 
     public void GetSize() {
-      System.out.println(spots.length);
+      System.out.println("Parking lot size: " + this.spots.size());
     }
 
-    public void AddCar(Vehicle vehicle){
-
+    public void AddSpot(String id, String size){
+      if (this.spots.size() < 50) {
+        this.spots.add(new ParkingSpot(id, size));
+      } else {
+        // overflow exception
+        System.out.println("Parking lot cannot fit anymore stalls!");
+      }
     }
 }
 
