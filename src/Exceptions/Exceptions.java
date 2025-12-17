@@ -15,22 +15,23 @@ public class Exceptions {
         }
     }
 
-    public int parkingAvailable (String parkingCount) throws RuntimeException{
+    public static boolean parkingAvailable(int parkingCount) throws RuntimeException{
+        boolean passing = true;
         try{
             int maxParking = 50;
-            int currentParking = Integer.parseInt(parkingCount);
 
-            if (currentParking > maxParking){
+            if (parkingCount > maxParking){
                 throw new RuntimeException();
             }
-            else if (currentParking == maxParking){
+            else if (parkingCount == maxParking){
                 System.out.println("No parking is available");
+                passing = false;
             }
-
             else {
                 System.out.print("Unknown error occured.");
+                passing = false;
             }
-            return currentParking;
+            return passing;
         } catch (RuntimeException e) {
             System.err.println("Parking is over capacity.");
             throw new RuntimeException(e);
