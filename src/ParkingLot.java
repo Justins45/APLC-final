@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import Exceptions.*;
 
 public class ParkingLot {
@@ -29,6 +30,19 @@ public class ParkingLot {
       }
     }
     // TODO: add way to create a full list without adding one by one
+
+    public String findSpot(String size) {
+        for (ParkingSpot spot : this.spots) {
+            if (Objects.equals(spot.getSize(), "unknown")) {
+                size = "large";
+            }
+            if (Objects.equals(spot.getSize(), size) && spot.isAvailable()) {
+                return spot.getId();
+            }
+        }
+        System.out.println("No spots available that match required size");
+        return null;
+    }
 }
 
 
