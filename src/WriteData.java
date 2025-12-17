@@ -7,18 +7,18 @@ public class WriteData implements Runnable {
 
   private final String _content;
 
-  public WriteData(List<Object> list) {
+  public WriteData(List<ParkingSpot> list) {
     // write list to a string with String builder
     StringBuilder sb = new StringBuilder();
-    for (Object item : list) {
-      sb.append(item).append("\n");
+    for (ParkingSpot item : list) {
+      sb.append(item.toString()).append("\n");
     }
     _content = sb.toString();
   }
 
   @Override
   public void run() {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("data.txt"))) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("parkingSpots.txt"))) {
       writer.write(_content);
     } catch (IOException e) {
       System.err.println("Error writing data to file: " + e);
