@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import Exceptions.*;
 
 public class ParkingLot {
 
@@ -24,8 +25,8 @@ public class ParkingLot {
         WriteData write = new WriteData(spots);
         write.run();
       } else {
-        // overflow exception
-        System.out.println("Parking lot cannot fit anymore stalls!");
+          Exceptions.parkingAvailable(this.spots.size());
+          System.out.println("Parking lot cannot fit anymore stalls!");
       }
     }
     // TODO: add way to create a full list without adding one by one
