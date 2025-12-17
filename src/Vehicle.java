@@ -6,7 +6,7 @@ public class Vehicle {
 
     //getters
     public String getPlate() {
-        return vehicle;
+        return plate;
     }
 
     public String getSize() {
@@ -14,8 +14,8 @@ public class Vehicle {
     }
 
     //setters
-    public void setPlate(String vehicle) {
-        this.vehicle = vehicle;
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
     public void setSize(String size) {
@@ -24,7 +24,7 @@ public class Vehicle {
 
     //constructor
     public Vehicle(String plate, String size){
-        this.plate = _vehicle;
-        this.size = _size;
+        this.plate = plate;
+        this.size = size;
     }
 }
