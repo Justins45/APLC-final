@@ -21,6 +21,8 @@ public class ParkingLot {
     public void AddSpot(String id, String size){
       if (this.spots.size() < 50) {
         this.spots.add(new ParkingSpot(id, size));
+        WriteData write = new WriteData(spots);
+        write.run();
       } else {
         // overflow exception
         System.out.println("Parking lot cannot fit anymore stalls!");

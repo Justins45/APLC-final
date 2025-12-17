@@ -35,4 +35,8 @@ public class ParkingSpot {
         this.size = size;
         this.available = true;
     }
+
+    public String toString() {
+      return "ID: " + this.id + " Size: " + this.size + " Availability: " + this.available;
+    }
 }

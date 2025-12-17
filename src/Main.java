@@ -4,9 +4,8 @@ public final Scanner keyboardInput = new Scanner(System.in);
 
 void main() {
 
-  ParkingLot parkingLot = new ParkingLot();
-  parkingLot.AddSpot("p1", "compact");
-  //parkingLot.GetSize();
+ParkingLot parkingLot = new ParkingLot();
+parkingLot.AddSpot("p1", "compact");
 
 
   int selection = -1;
