@@ -14,6 +14,9 @@ void main() {
       createParkingSession();
     case 3:
       endParkingSession();
+    case 0:
+      System.out.println("Thank you for using the Smart Parking System!");
+      System.out.println("Have a wonderful day!");
   }
 }
 
@@ -57,9 +60,22 @@ public int displayMenu() {
   System.out.println("1. Display spots");
   System.out.println("2. Park your vehicle");
   System.out.println("3. End parking session");
-  System.out.print("User selection: ");
-  int userInput = Integer.parseInt(keyboardInput.nextLine());
-  System.out.println(userInput);
+  System.out.println("0. Exit menu");
+  boolean inputValid = false;
+  int userInput = -1;
+  while (!inputValid) {
+    System.out.print("User selection: ");
+    try {
+      userInput = Integer.parseInt(keyboardInput.nextLine());
+    } catch(Exception InvalidIntegerException) {
+      System.out.println("Input is not an integer. Please make a valid selection.");
+    }
+    if (userInput == 1 || userInput == 2 || userInput == 3 || userInput == 0) {
+      inputValid = true;
+    } else {
+      System.out.println("Please enter a valid selection.");
+    }
+  }
   return userInput;
 }
 
