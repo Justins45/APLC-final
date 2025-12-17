@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+public final Scanner keyboardInput = new Scanner(System.in);
+
 void main() {
 
 
@@ -22,10 +24,8 @@ public int displayMenu() {
   System.out.println("2. Park your vehicle");
   System.out.println("3. End parking session");
   System.out.print("User selection: ");
-  Scanner keyboardInput = new Scanner(System.in);
-  int userInput = keyboardInput.nextInt();
+  int userInput = Integer.parseInt(keyboardInput.nextLine());
   System.out.println(userInput);
-  keyboardInput.close();
   return userInput;
 }
 
@@ -34,5 +34,27 @@ public void createParkingSession() {
 }
 
 public void endParkingSession() {
-
+  System.out.println("Enter parking spot id: ");
+  String userInput = keyboardInput.nextLine();
+  System.out.println(userInput);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
